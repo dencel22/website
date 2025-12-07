@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:website/constants/style.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:website/export.dart';
 
 class ThemeWebsite {
   static ThemeData get websiteTheme => ThemeData(
@@ -8,25 +6,12 @@ class ThemeWebsite {
     highlightColor: Colors.transparent,
     splashColor: Colors.transparent,
     splashFactory: NoSplash.splashFactory,
-    scaffoldBackgroundColor: Color(0xFF0E2028),
+    scaffoldBackgroundColor: Style.white,
     colorScheme: ColorScheme.fromSeed(
       seedColor: Style.primaryColor,
     ).copyWith(primary: Style.primaryColor),
     fontFamily: GoogleFonts.poppins().fontFamily,
-    textTheme: GoogleFonts.poppinsTextTheme().copyWith(
-      displayLarge: TextStyle(color: Style.white),
-      displayMedium: TextStyle(color: Style.white),
-      displaySmall: TextStyle(color: Style.white),
-      headlineLarge: TextStyle(color: Style.white),
-      headlineMedium: TextStyle(color: Style.white),
-      headlineSmall: TextStyle(color: Style.white),
-      titleLarge: TextStyle(color: Style.white),
-      titleMedium: TextStyle(color: Style.white),
-      titleSmall: TextStyle(color: Style.white),
-      bodyLarge: TextStyle(color: Style.white),
-      bodyMedium: TextStyle(color: Style.white),
-      bodySmall: TextStyle(color: Style.white),
-    ),
+    textTheme: GoogleFonts.poppinsTextTheme().copyWith(),
     appBarTheme: AppBarTheme(
       toolbarHeight: 80,
       backgroundColor: Color(0xFF0E2028),
@@ -38,11 +23,41 @@ class ThemeWebsite {
       ),
       actionsPadding: .only(right: 24),
     ),
-    textButtonTheme: TextButtonThemeData(
-      style: ButtonStyle(
-        foregroundColor: WidgetStatePropertyAll<Color>(Style.white),
-        textStyle: WidgetStatePropertyAll<TextStyle>(
-          TextStyle(fontSize: 14, fontWeight: .w300),
+    inputDecorationTheme: InputDecorationTheme(
+      errorStyle: TextStyle(color: const Color.fromARGB(255, 255, 17, 0)),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: BorderSide(
+          width: 1,
+          color: Colors.grey.withAlpha((255 * 0.4).toInt()),
+        ),
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: BorderSide(
+          width: 1,
+          color: Colors.grey.withAlpha((255 * 0.4).toInt()),
+        ),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: BorderSide(
+          width: 1,
+          color: Colors.grey.withAlpha((255 * 0.4).toInt()),
+        ),
+      ),
+      disabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: BorderSide(
+          width: 1,
+          color: Colors.grey.withAlpha((255 * 0.4).toInt()),
+        ),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: BorderSide(
+          width: 1,
+          color: const Color.fromARGB(255, 255, 17, 0),
         ),
       ),
     ),
@@ -63,13 +78,14 @@ class ThemeWebsite {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
+        minimumSize: Size(160, 40),
+        shape: RoundedRectangleBorder(borderRadius: .circular(8)),
         padding: .symmetric(horizontal: 14, vertical: 12),
         iconSize: 14,
         iconAlignment: IconAlignment.end,
-        fixedSize: Size(160, 44),
-        foregroundColor: Style.secondaryColor,
+        fixedSize: Size(double.infinity, 40),
+        foregroundColor: Style.white,
         backgroundColor: Style.primaryColor,
-        textStyle: TextStyle(fontWeight: .bold),
       ),
     ),
     expansionTileTheme: ExpansionTileThemeData().copyWith(
